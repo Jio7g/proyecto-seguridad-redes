@@ -48,9 +48,7 @@ export default function Home() {
             2025 - Grupo 2
           </p>
           <p className="text-md sm:text-lg text-gray-200 opacity-90 max-w-3xl mx-auto mb-12 leading-relaxed">
-            Bienvenido al sistema de demostración para el proyecto final de seguridad de redes.
-            Explora una plataforma integral diseñada para entender y analizar conceptos avanzados de seguridad en entornos TCP/IP,
-            preparada para pruebas de robustez y resiliencia.
+            Sistema de demostración para el proyecto final de seguridad de redes.
           </p>
           <Link 
             href="/login" 
