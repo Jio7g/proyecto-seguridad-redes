@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+// import { useRouter } from 'next/navigation'; // Remove if not used
 
 export default function ChangePasswordForm() {
   const [currentPassword, setCurrentPassword] = useState('');
@@ -10,7 +10,7 @@ export default function ChangePasswordForm() {
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const router = useRouter();
+  // const router = useRouter(); // REMOVE THIS LINE
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

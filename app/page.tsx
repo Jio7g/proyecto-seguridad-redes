@@ -1,6 +1,7 @@
 'use client'; // Agrega esta línea al principio del archivo
 
 import React from 'react'; // Es una buena práctica importar React explícitamente cuando se usa 'use client'
+import Link from 'next/link'; // Import Link
 
 export default function Home() {
   return (
@@ -8,19 +9,19 @@ export default function Home() {
       {/* Header */}
       <header className="bg-gradient-to-r from-blue-900 to-indigo-800 shadow-xl py-4 px-6 md:px-12 flex justify-between items-center fixed w-full z-20 top-0">
         <div className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
-          <a href="/" className="hover:text-blue-300 transition-colors duration-300">
+          <Link href="/" className="hover:text-blue-300 transition-colors duration-300">
             Grupo 2 - Seguridad TCP/IP
-          </a>
+          </Link>
         </div>
         <nav>
           <ul className="flex space-x-6">
             <li>
-              <a 
+              <Link 
                 href="/login" 
                 className="bg-green-500 text-white px-6 py-2 rounded-full font-semibold text-lg hover:bg-green-600 transition-all duration-300 transform hover:scale-105 shadow-md"
               >
                 Iniciar Sesión
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
@@ -43,7 +44,7 @@ export default function Home() {
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-6 leading-tight text-white drop-shadow-lg animate-pulseText">
             Proyecto Final Seguridad de Redes TCP/IP
           </h1>
-          <p className="text-xl sm:text-2xl md:text-4xl font-light text-blue-200 mb-8 opacity-90 drop-shadow-md">
+          <p className="text-xl sm:text-2xl md::text-4xl font-light text-blue-200 mb-8 opacity-90 drop-shadow-md">
             2025 - Grupo 2
           </p>
           <p className="text-md sm:text-lg text-gray-200 opacity-90 max-w-3xl mx-auto mb-12 leading-relaxed">
@@ -51,12 +52,12 @@ export default function Home() {
             Explora una plataforma integral diseñada para entender y analizar conceptos avanzados de seguridad en entornos TCP/IP,
             preparada para pruebas de robustez y resiliencia.
           </p>
-          <a 
+          <Link 
             href="/login" 
             className="inline-block bg-green-500 text-white px-10 py-4 rounded-full text-xl font-bold shadow-xl hover:bg-green-600 transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 border border-green-400"
           >
             Acceder al Sistema
-          </a>
+          </Link>
         </div>
       </main>
 

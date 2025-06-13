@@ -7,7 +7,7 @@ import Link from 'next/link'; // Importa Link para el botón de regreso
 export default function LoginForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [error, setError] = useState(''); // This error state is used in the JSX
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
@@ -31,8 +31,9 @@ export default function LoginForm() {
       } else {
         setError(data.error || 'Usuario o contraseña incorrectos'); // Mensaje de error más específico
       }
-    } catch (error) {
+    } catch (err) { // Changed 'error' to 'err'
       setError('Error de conexión con el servidor. Por favor, inténtalo más tarde.');
+      console.error('Error de conexión:', err); // Use 'err' here
     } finally {
       setIsLoading(false);
     }
@@ -82,7 +83,7 @@ export default function LoginForm() {
           <div className="flex items-center">
             {/* Icono de advertencia, usando SVG inline */}
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M8.257 3.518A8.955 8.955 0 0110 3c2.736 0 5.255 1.096 7.143 2.857A8.955 8.955 0 0117 10c0 2.736-1.096 5.255-2.857 7.143A8.955 8.955 0 0110 17c-2.736 0-5.255-1.096-7.143-2.857A8.955 8.955 0 013 10c0-2.736 1.096-5.255 2.857-7.143zM10 5a1 1 0 011 1v3a1 1 0 11-2 0V6a1 1 0 011-1zm0 8a1 1 0 100 2 1 1 0 000-2z" clipRule="evenodd" />
+              <path fillRule="evenodd" d="M8.257 3.518A8.955 8.955 0 0110 3c2.736 0 5.255 1.096 7.143 2.857A8.955 8.955 0 0117 10c0-2.736-1.096-5.255-2.857-7.143A8.955 8.955 0 0110 17c-2.736 0-5.255-1.096-7.143-2.857A8.955 8.955 0 013 10c0-2.736 1.096-5.255 2.857-7.143zM10 5a1 1 0 011 1v3a1 1 0 11-2 0V6a1 1 0 011-1zm0 8a1 1 0 100 2 1 1 0 000-2z" clipRule="evenodd" />
             </svg>
             {error}
           </div>

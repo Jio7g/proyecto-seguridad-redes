@@ -1,3 +1,4 @@
+// app/api/auth/change-password/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
@@ -16,7 +17,8 @@ export async function POST(request: NextRequest) {
     const { currentPassword, newPassword } = await request.json();
 
     // 1. Obtener el token de la cookie
-    const cookieStore = cookies();
+    // Await the cookies() function call
+    const cookieStore = await cookies(); 
     const tokenCookie = cookieStore.get('auth-token');
 
     if (!tokenCookie) {
@@ -27,8 +29,8 @@ export async function POST(request: NextRequest) {
     let decodedToken: UserToken;
     try {
       decodedToken = jwt.verify(tokenCookie.value, process.env.JWT_SECRET!) as UserToken;
-    } catch (err: any) { // Capturamos el error con tipo 'any' para acceder a 'message'
-      console.error('Error al verificar token JWT:', err.message); // Usamos err.message
+    } catch (err) { // Capturamos el error con tipo 'unknown'
+      console.error('Error al verificar token JWT:', (err as Error).message);
       return NextResponse.json({ error: 'Token inválido o expirado' }, { status: 401 });
     }
 
@@ -65,8 +67,8 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ message: 'Contraseña actualizada exitosamente' }, { status: 200 });
 
-  } catch (err: any) { // Capturamos el error con tipo 'any'
-    console.error('Error en la API de cambio de contraseña:', err.message); // Usamos err.message
+  } catch (err) { // Capturamos el error con tipo 'unknown'
+    console.error('Error en la API de cambio de contraseña:', (err as Error).message);
     return NextResponse.json({ error: 'Error interno del servidor' }, { status: 500 });
   }
 }

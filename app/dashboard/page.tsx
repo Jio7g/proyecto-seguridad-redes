@@ -1,3 +1,4 @@
+// app/dashboard/page.tsx
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import jwt from 'jsonwebtoken';
@@ -10,7 +11,8 @@ interface UserToken {
 }
 
 async function getUser() {
-  const cookieStore = cookies();
+  // Await the cookies() function call
+  const cookieStore = await cookies(); 
   // Accede al valor de la cookie directamente desde el objeto RequestCookie
   const token = cookieStore.get('auth-token'); 
 

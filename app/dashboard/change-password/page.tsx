@@ -2,10 +2,10 @@
 
 import ChangePasswordForm from '@/components/ChangePasswordForm';
 import Link from 'next/link'; // Importa Link para el botón de regreso
-import { useRouter } from 'next/navigation'; // Necesario para la navegación
+// import { useRouter } from 'next/navigation'; // Remove if not used
 
 export default function ChangePasswordPage() {
-  const router = useRouter(); // Inicializa el router para la navegación
+  // const router = useRouter(); // Inicializa el router para la navegación - REMOVE THIS LINE
 
   return (
     <div className="min-h-screen flex flex-col items-center bg-gray-900 text-gray-100 font-sans antialiased">
