@@ -97,9 +97,6 @@ export default function LoginForm() {
       </div>
       
       <div className="text-sm text-center text-gray-600">
-        <p>Usuarios de prueba:</p>
-        <p className="font-mono">admin / admin123</p>
-        <p className="font-mono">usuario1 / user123</p>
       </div>
     </form>
   );

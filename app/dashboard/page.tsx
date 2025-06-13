@@ -11,12 +11,13 @@ interface UserToken {
 
 async function getUser() {
   const cookieStore = cookies();
-  const token = cookieStore.get('auth-token');
-  
+  // Accede al valor de la cookie directamente desde el objeto RequestCookie
+  const token = cookieStore.get('auth-token'); 
+
   if (!token) {
     redirect('/login');
   }
-  
+
   try {
     const decoded = jwt.verify(token.value, process.env.JWT_SECRET!) as UserToken;
     const user = await prisma.user.findUnique({
@@ -29,11 +30,11 @@ async function getUser() {
         createdAt: true
       }
     });
-    
+
     if (!user) {
       redirect('/login');
     }
-    
+
     return user;
   } catch (error) {
     console.error('Error verificando token:', error);
@@ -43,7 +44,7 @@ async function getUser() {
 
 export default async function Dashboard() {
   const user = await getUser();
-  
+
   return (
     <div className="min-h-screen bg-gray-100">
       <nav className="bg-white shadow-sm">
@@ -66,7 +67,7 @@ export default async function Dashboard() {
           </div>
         </div>
       </nav>
-      
+
       <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         <div className="px-4 py-6 sm:px-0">
           <div className="bg-white overflow-hidden shadow rounded-lg">
@@ -74,7 +75,7 @@ export default async function Dashboard() {
               <h2 className="text-2xl font-bold text-gray-900 mb-4">
                 ¡Bienvenido, {user.name}!
               </h2>
-              
+
               <div className="mt-5 border-t border-gray-200 pt-5">
                 <dl className="divide-y divide-gray-200">
                   <div className="py-4 sm:grid sm:grid-cols-3 sm:gap-4">
@@ -85,7 +86,7 @@ export default async function Dashboard() {
                       {user.username}
                     </dd>
                   </div>
-                  
+
                   <div className="py-4 sm:grid sm:grid-cols-3 sm:gap-4">
                     <dt className="text-sm font-medium text-gray-500">
                       Nombre Completo
@@ -94,7 +95,7 @@ export default async function Dashboard() {
                       {user.name}
                     </dd>
                   </div>
-                  
+
                   <div className="py-4 sm:grid sm:grid-cols-3 sm:gap-4">
                     <dt className="text-sm font-medium text-gray-500">
                       Correo Electrónico
@@ -103,7 +104,7 @@ export default async function Dashboard() {
                       {user.email}
                     </dd>
                   </div>
-                  
+
                   <div className="py-4 sm:grid sm:grid-cols-3 sm:gap-4">
                     <dt className="text-sm font-medium text-gray-500">
                       Miembro desde
@@ -120,7 +121,7 @@ export default async function Dashboard() {
               </div>
             </div>
           </div>
-          
+
           <div className="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
             <div className="flex">
               <div className="flex-shrink-0">
