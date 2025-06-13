@@ -27,7 +27,8 @@ export async function POST(request: NextRequest) {
     let decodedToken: UserToken;
     try {
       decodedToken = jwt.verify(tokenCookie.value, process.env.JWT_SECRET!) as UserToken;
-    } catch (error) {
+    } catch (err: any) { // Capturamos el error con tipo 'any' para acceder a 'message'
+      console.error('Error al verificar token JWT:', err.message); // Usamos err.message
       return NextResponse.json({ error: 'Token inválido o expirado' }, { status: 401 });
     }
 
@@ -64,8 +65,8 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ message: 'Contraseña actualizada exitosamente' }, { status: 200 });
 
-  } catch (error) {
-    console.error('Error al cambiar la contraseña:', error);
+  } catch (err: any) { // Capturamos el error con tipo 'any'
+    console.error('Error en la API de cambio de contraseña:', err.message); // Usamos err.message
     return NextResponse.json({ error: 'Error interno del servidor' }, { status: 500 });
   }
 }
