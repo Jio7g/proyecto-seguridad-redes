@@ -70,46 +70,46 @@ export default async function Dashboard() {
 
       <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         <div className="px-4 py-6 sm:px-0">
-          <div className="bg-white overflow-hidden shadow rounded-lg">
+          <div className="bg-cyan-800 text-white overflow-hidden shadow rounded-lg">
             <div className="px-4 py-5 sm:p-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              <h2 className="text-2xl font-bold text-gray-100 mb-4">
                 ¡Bienvenido, {user.name}!
               </h2>
 
               <div className="mt-5 border-t border-gray-200 pt-5">
                 <dl className="divide-y divide-gray-200">
                   <div className="py-4 sm:grid sm:grid-cols-3 sm:gap-4">
-                    <dt className="text-sm font-medium text-gray-500">
+                    <dt className="text-sm font-medium text-white neon-text">
                       Usuario
                     </dt>
-                    <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                    <dd className="mt-1 text-sm text-white sm:col-span-2 sm:mt-0">
                       {user.username}
                     </dd>
                   </div>
 
                   <div className="py-4 sm:grid sm:grid-cols-3 sm:gap-4">
-                    <dt className="text-sm font-medium text-gray-500">
+                    <dt className="text-sm font-medium text-gray-200">
                       Nombre Completo
                     </dt>
-                    <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                    <dd className="mt-1 text-sm text-gray-100 sm:col-span-2 sm:mt-0">
                       {user.name}
                     </dd>
                   </div>
 
                   <div className="py-4 sm:grid sm:grid-cols-3 sm:gap-4">
-                    <dt className="text-sm font-medium text-gray-500">
+                    <dt className="text-sm font-medium text-gray-200">
                       Correo Electrónico
                     </dt>
-                    <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                    <dd className="mt-1 text-sm text-gray-100 sm:col-span-2 sm:mt-0">
                       {user.email}
                     </dd>
                   </div>
 
                   <div className="py-4 sm:grid sm:grid-cols-3 sm:gap-4">
-                    <dt className="text-sm font-medium text-gray-500">
+                    <dt className="text-sm font-medium text-gray-200">
                       Miembro desde
                     </dt>
-                    <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                    <dd className="mt-1 text-sm text-gray-100 sm:col-span-2 sm:mt-0">
                       {new Date(user.createdAt).toLocaleDateString('es-ES', {
                         year: 'numeric',
                         month: 'long',
