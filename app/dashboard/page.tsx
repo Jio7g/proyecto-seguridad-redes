@@ -46,19 +46,19 @@ export default async function Dashboard() {
   const user = await getUser();
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      <nav className="bg-white shadow-sm">
+    <div className="min-h-screen bg-gray-900">
+      <nav className="bg-gradient-to-r from-blue-900 to-indigo-800 text-amber-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex items-center">
               <h1 className="text-xl font-semibold">Panel de Usuario</h1>
             </div>
             <div className="flex items-center space-x-4">
-              <span className="text-gray-700">Hola, {user.name}</span>
+              <span className="text-amber-50">Hola, {user.name}</span>
               <form action="/api/auth/logout" method="POST">
                 <button
                   type="submit"
-                  className="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium"
+                  className="text-amber-50 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium roun bg-orange-700"
                 >
                   Cerrar Sesión
                 </button>
@@ -131,7 +131,7 @@ export default async function Dashboard() {
               </div>
               <div className="ml-3 flex-1">
                 <p className="text-sm text-blue-700">
-                  Esta es una página de demostración para el Proyecto Final de Seguridad de Redes TCP/IP.
+                  Página de demostración para el Proyecto Final de Seguridad de Redes TCP/IP.
                   El sistema está preparado para pruebas de seguridad controladas.
                 </p>
               </div>
